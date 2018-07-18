@@ -1,0 +1,2 @@
+export const API_HOST = 'http://server.domain'
+export const BASE_URL = 'http://myapp.iriscouch.com'
