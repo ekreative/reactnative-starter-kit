@@ -5,7 +5,7 @@ export default async function createUser (id) {
   try {
     data = await API.getUser(id)
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
   return data
 }

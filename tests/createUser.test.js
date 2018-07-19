@@ -15,7 +15,7 @@ test('createUser should get data from the server', (done) => {
       done()
     })
     .catch(err => {
-      console.log('oops', err)
+      console.error('oops', err)
       done()
     })
 })
