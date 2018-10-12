@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start --reset-cache",
+    "clear-cache": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && react-native start --reset-cache",
     "standard-test": "standard",
     "jest-test": "jest",
     "android": "react-native run-android",
