@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Text, View, Button } from 'react-native'
 
 import styles from './styles'
@@ -32,16 +32,22 @@ export default class ScreenA extends Component {
   render () {
     return (
       <View style={styles.wrapper}>
-        <Text style={styles.title}>
-          It is Screen A
-        </Text>
-        <Text style={styles.title}>
-          Value: {this.props.value}
-        </Text>
-        <Button title='Increment' onPress={this.increment} />
-        <Button title='Decrement' onPress={this.decrement} />
-        <Button title='Go to Component B' onPress={this.navigateToB} />
-        <Button title='Go to Component C' onPress={this.navigateToC} />
+        {this.props.isConnected
+          ? <Fragment>
+            <Text style={styles.title}>
+              It is Screen A
+            </Text>
+            <Text style={styles.title}>
+              Value: {this.props.value}
+            </Text>
+            <Button title='Increment' onPress={this.increment} />
+            <Button title='Decrement' onPress={this.decrement} />
+            <Button title='Go to Component B' onPress={this.navigateToB} />
+            <Button title='Go to Component C' onPress={this.navigateToC} />
+          </Fragment>
+          : <Text style={styles.title}>
+            You are offline.
+          </Text>}
       </View>
     )
   }

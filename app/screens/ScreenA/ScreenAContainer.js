@@ -7,7 +7,8 @@ import { getValue } from '../../selectors/valueSelector'
 
 const mapStateToProps = (state) => {
   return {
-    value: getValue(state)
+    value: getValue(state),
+    isConnected: state.network.isConnected
   }
 }
 
