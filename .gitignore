@@ -47,7 +47,7 @@ local.properties
 # node.js
 npm-debug.log
 yarn-error.log
-node_modules
+node_modules/
 *.log
 .nvm
 /bots/node_modules/
@@ -55,7 +55,7 @@ package-lock.json
 
 # BUCK
 *.keystore
-.buckd
+\.buckd/
 buck-out
 /ReactAndroid/src/main/jni/prebuilt/lib/armeabi-v7a/
 /ReactAndroid/src/main/jni/prebuilt/lib/x86/
