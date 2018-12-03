@@ -31,11 +31,13 @@ class ErrorBoundary extends Component {
 
   render () {
     if (this.state.errorInfo) {
+      let buttonText = this.state.showDetails ? 'Hide details' : 'Show details'
+      
       return <View style={styles.wrapper}>
         <Text>Something went wrong, please restart your application.</Text>
         <TouchableOpacity
           onPress={this.toggleDetails}>
-          <Text>Show details</Text>
+          <Text>{buttonText}</Text>
         </TouchableOpacity>
         {this.state.showDetails && <View>
           <Text>{this.state.error && this.state.error.toString()}</Text>
