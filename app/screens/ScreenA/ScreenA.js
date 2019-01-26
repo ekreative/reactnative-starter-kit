@@ -4,41 +4,26 @@ import { Text, View, Button } from 'react-native'
 import styles from './styles'
 
 export default class ScreenA extends Component {
-  constructor (props) {
-    super(props)
+  increment = () => this.props.increment()
 
-    this.increment = this.increment.bind(this)
-    this.decrement = this.decrement.bind(this)
-    this.navigateToB = this.navigateToB.bind(this)
-    this.navigateToC = this.navigateToC.bind(this)
-  }
+  decrement = () => this.props.decrement()
 
-  increment () {
-    this.props.increment()
-  }
+  navigateToB = () => this.props.navigation.navigate('ScreenB')
 
-  decrement () {
-    this.props.decrement()
-  }
-
-  navigateToB () {
-    this.props.navigation.navigate('ScreenB')
-  }
-
-  navigateToC () {
-    this.props.navigation.navigate('ScreenC')
-  }
+  navigateToC = () => this.props.navigation.navigate('ScreenC')
 
   render () {
+    let { isConnected, value } = this.props
+
     return (
       <View style={styles.wrapper}>
-        {this.props.isConnected
+        {isConnected
           ? <Fragment>
             <Text style={styles.title}>
               It is Screen A
             </Text>
             <Text style={styles.title}>
-              Value: {this.props.value}
+              Value: {value}
             </Text>
             <Button title='Increment' onPress={this.increment} />
             <Button title='Decrement' onPress={this.decrement} />

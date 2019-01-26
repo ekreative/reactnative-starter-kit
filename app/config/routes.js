@@ -1,9 +1,9 @@
-import { StackNavigator } from 'react-navigation'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 import ScreenA from '../screens/ScreenA/ScreenAContainer'
 import ScreenB from '../screens/ScreenB/ScreenBContainer'
 import ScreenC from '../screens/ScreenC/ScreenCContainer'
 
-const AppNavigator = StackNavigator(
+const AppNavigator = createStackNavigator(
   {
     ScreenA: {
       screen: ScreenA
@@ -20,4 +20,4 @@ const AppNavigator = StackNavigator(
   }
 )
 
-export default AppNavigator
+export default createAppContainer(AppNavigator)

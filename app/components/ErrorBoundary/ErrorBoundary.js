@@ -1,5 +1,7 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+/* global __DEV__ */
 import React, { Component } from 'react'
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
+// import firebase from 'react-native-firebase'
 
 import styles from './styles'
 
@@ -11,17 +13,21 @@ class ErrorBoundary extends Component {
       errorInfo: null,
       showDetails: false
     }
-    this.toggleDetails = this.toggleDetails.bind(this)
   }
 
   componentDidCatch (error, errorInfo) {
     this.setState({
       error: error,
       errorInfo: errorInfo
-    })
+    }, () => {
+      if (!__DEV__) {
+        // firebase.crashlytics().recordError(0, `${this.state.error} ${JSON.stringify(this.state.errorInfo.componentStack)}`)
+      }
+    }
+    )
   }
 
-  toggleDetails () {
+  toggleDetails = () => {
     this.setState(state => {
       return {
         showDetails: !state.showDetails
@@ -32,17 +38,18 @@ class ErrorBoundary extends Component {
   render () {
     if (this.state.errorInfo) {
       let buttonText = this.state.showDetails ? 'Hide details' : 'Show details'
-      
+
       return <View style={styles.wrapper}>
-        <Text>Something went wrong, please restart your application.</Text>
+        <Text style={styles.text}>Something went wrong, please restart your application.</Text>
         <TouchableOpacity
+          style={styles.buttonWrapper}
           onPress={this.toggleDetails}>
-          <Text>{buttonText}</Text>
+          <Text style={styles.buttonText}>{buttonText}</Text>
         </TouchableOpacity>
-        {this.state.showDetails && <View>
-          <Text>{this.state.error && this.state.error.toString()}</Text>
-          <Text>{this.state.errorInfo && this.state.errorInfo.componentStack}</Text>
-        </View>}
+        {this.state.showDetails && <ScrollView style={styles.errorWrapper}>
+          <Text style={styles.text}>{this.state.error && this.state.error.toString()}</Text>
+          <Text style={styles.text}>{this.state.errorInfo && this.state.errorInfo.componentStack}</Text>
+        </ScrollView>}
       </View>
     }
     return this.props.children

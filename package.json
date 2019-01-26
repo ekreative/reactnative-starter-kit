@@ -3,49 +3,48 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start --reset-cache",
-    "clear-cache": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && react-native start --reset-cache",
-    "standard-test": "standard",
-    "jest-test": "jest",
+    "start": "node node_modules/react-native/local-cli/cli.js start --reset-cache",
+    "upgrade": "node node_modules/react-native/local-cli/cli.js upgrade",
+    "test": "jest",
+    "standard-test": "standard --verbose",
+    "standard-fix": "standard --fix",
+    "clear-cache": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install",
     "android": "react-native run-android",
-    "build-release-android": "cd android && ./gradlew assembleRelease",
     "ios": "react-native run-ios",
-    "standard-fix": "standard --verbose --fix",
-    "gradle-clean": "cd android && ./gradlew clean"
+    "gradle-clean": "cd android && ./gradlew clean",
+    "build-release-android": "cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "immutability-helper": "^2.7.1",
-    "react": "16.6.1",
-    "react-native": "0.57.7",
-    "react-native-offline": "^3.14.1",
-    "react-navigation": "^2.6.1",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "immutability-helper": "^3.0.0",
+    "react": "16.6.3",
+    "react-native": "0.58.1",
+    "react-native-firebase": "^5.2.1",
+    "react-native-gesture-handler": "^1.0.15",
+    "react-native-offline": "^4.1.2",
+    "react-navigation": "^3.0.9",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^3.0.1"
+    "reselect": "^4.0.0",
+    "standard": "^12.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.1",
-    "axios-mock-adapter": "^1.15.0",
-    "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "23.6.0",
-    "babel-preset-react-native-stage-0": "^1.0.1",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.50.0",
-    "nock": "^9.4.2",
-    "react-native-mock-render": "0.0.27",
-    "react-test-renderer": "16.6.1",
-    "standard": "^11.0.1"
+    "babel-jest": "24.0.0",
+    "jest": "24.0.0",
+    "metro-react-native-babel-preset": "0.51.1",
+    "react-test-renderer": "16.6.3"
   },
   "jest": {
     "preset": "react-native"
   },
   "standard": {
     "ignore": [
-      "tests/"
-    ]
+      "__tests__"
+    ],
+    "parser": "babel-eslint"
   }
 }

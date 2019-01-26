@@ -15,7 +15,7 @@ const initialState = {
 export default function reducer (state = initialState, action) {
   switch (action.type) {
     case REDUCER + CHANGE_STATE_PROP:
-      let {prop, value} = action.state
+      let { prop, value } = action.state
       return update(state, {
         [prop]: {
           $set: value

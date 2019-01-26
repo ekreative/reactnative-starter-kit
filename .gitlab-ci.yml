@@ -1,0 +1,22 @@
+image: node:10.13.0
+
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  - yarn install
+
+stages:
+  - test
+
+test:
+  stage: test
+  tags:
+    - docker
+  script:
+    - yarn run standard-test
+    - yarn test
+  only:
+    - dev
+    - master

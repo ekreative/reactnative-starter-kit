@@ -22,7 +22,7 @@ export default (state = defaultState, action) => {
       }
     case REDUCER + CHANGE_STATE_PROP:
       return update(state, {
-        [action.state.prop]: {$set: action.state.value}
+        [action.state.prop]: { $set: action.state.value }
       })
     default:
       return state

@@ -1,20 +1,22 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Text, View } from 'react-native'
 
 import styles from './styles'
 
-export default class ScreenC extends Component {
+export default class ScreenC extends PureComponent {
   render () {
+    let { value, list } = this.props
+
     return (
       <View style={styles.wrapper}>
         <Text style={styles.title}>
           It is Component C
         </Text>
         <Text style={styles.title}>
-          Value: {this.props.value}
+          Value: {value}
         </Text>
 
-        {this.props.list.map((item, index) => {
+        {list.map((item, index) => {
           return <Text key={index}>{item.value}</Text>
         })}
       </View>

@@ -5,29 +5,20 @@ import styles from './styles'
 import MyBackButton from '../../components/MyBackButton'
 
 export default class ScreenB extends Component {
-  constructor (props) {
-    super(props)
+  increment = () => this.props.increment()
 
-    this.increment = this.increment.bind(this)
-    this.decrement = this.decrement.bind(this)
-  }
-
-  increment () {
-    this.props.increment()
-  }
-
-  decrement () {
-    this.props.decrement()
-  }
+  decrement = () => this.props.decrement()
 
   render () {
+    let { value } = this.props
+
     return (
       <View style={styles.wrapper}>
         <Text style={styles.title}>
           It is Component B
         </Text>
         <Text style={styles.title}>
-          Value: {this.props.value}
+          Value: {value}
         </Text>
 
         <Button title='Increment' onPress={this.increment} />

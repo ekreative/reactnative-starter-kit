@@ -1,4 +1,4 @@
-import API from '../api'
+import API from '../services/api'
 
 export default async function createUser (id) {
   let data = {}
