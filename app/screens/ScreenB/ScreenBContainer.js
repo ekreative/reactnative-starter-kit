@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import ScreenB from './ScreenB'
 import { increment, decrement } from '../../actions'
@@ -11,11 +10,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    increment,
-    decrement
-  }, dispatch)
+const mapDispatchToProps = {
+  increment,
+  decrement
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScreenB)

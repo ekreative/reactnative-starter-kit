@@ -17,6 +17,3 @@ test:
   script:
     - yarn run standard-test
     - yarn test
-  only:
-    - dev
-    - master

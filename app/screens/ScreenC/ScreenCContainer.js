@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 import ScreenC from './ScreenC'
 import { getFiltering } from '../../selectors/filterSelector'
@@ -14,9 +13,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ScreenC)
+export default connect(mapStateToProps, null)(ScreenC)

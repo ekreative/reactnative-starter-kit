@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Button } from 'react-native'
 import { withNavigation } from 'react-navigation'
 
-const MyBackButton = React.memo(({ navigation }) => {
+const MyBackButton = memo(({ navigation }) => {
   return <Button title='MyBackButton' onPress={() => { navigation.goBack() }} />
 })
 

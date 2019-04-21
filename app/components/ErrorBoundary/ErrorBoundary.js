@@ -47,8 +47,8 @@ class ErrorBoundary extends Component {
           <Text style={styles.buttonText}>{buttonText}</Text>
         </TouchableOpacity>
         {this.state.showDetails && <ScrollView style={styles.errorWrapper}>
-          <Text style={styles.text}>{this.state.error && this.state.error.toString()}</Text>
-          <Text style={styles.text}>{this.state.errorInfo && this.state.errorInfo.componentStack}</Text>
+          <Text style={[styles.text, styles.errorBodyText]}>{this.state.error && this.state.error.toString()}</Text>
+          <Text style={[styles.text, styles.errorBodyText]}>{this.state.errorInfo && this.state.errorInfo.componentStack}</Text>
         </ScrollView>}
       </View>
     }

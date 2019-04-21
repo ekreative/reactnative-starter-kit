@@ -12,6 +12,9 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#fff'
   },
+  errorBodyText: {
+    textAlign: 'left'
+  },
   buttonWrapper: {
     marginTop: 20,
     borderBottomWidth: 0.25,

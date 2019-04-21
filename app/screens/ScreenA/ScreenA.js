@@ -1,39 +1,28 @@
-import React, { Component, Fragment } from 'react'
+import React, { memo } from 'react'
 import { Text, View, Button } from 'react-native'
 
 import styles from './styles'
 
-export default class ScreenA extends Component {
-  increment = () => this.props.increment()
+const ScreenA = memo(({ increment, decrement, navigation, value }) => {
+  const navigateToB = () => navigation.navigate('ScreenB')
+  const navigateToC = () => navigation.navigate('ScreenC')
+  const navigateToHooksScreen = () => navigation.navigate('ScreenWithHooks')
 
-  decrement = () => this.props.decrement()
+  return (
+    <View style={styles.wrapper}>
+      <Text style={styles.title}>
+                It is Screen A
+      </Text>
+      <Text style={styles.title}>
+                Value: {value}
+      </Text>
+      <Button title='Increment' onPress={increment} />
+      <Button title='Decrement' onPress={decrement} />
+      <Button title='Go to Component B' onPress={navigateToB} />
+      <Button title='Go to Component C' onPress={navigateToC} />
+      <Button title='Go to screen with Hooks examples' onPress={navigateToHooksScreen} />
+    </View>
+  )
+})
 
-  navigateToB = () => this.props.navigation.navigate('ScreenB')
-
-  navigateToC = () => this.props.navigation.navigate('ScreenC')
-
-  render () {
-    let { isConnected, value } = this.props
-
-    return (
-      <View style={styles.wrapper}>
-        {isConnected
-          ? <Fragment>
-            <Text style={styles.title}>
-              It is Screen A
-            </Text>
-            <Text style={styles.title}>
-              Value: {value}
-            </Text>
-            <Button title='Increment' onPress={this.increment} />
-            <Button title='Decrement' onPress={this.decrement} />
-            <Button title='Go to Component B' onPress={this.navigateToB} />
-            <Button title='Go to Component C' onPress={this.navigateToC} />
-          </Fragment>
-          : <Text style={styles.title}>
-            You are offline.
-          </Text>}
-      </View>
-    )
-  }
-}
+export default ScreenA

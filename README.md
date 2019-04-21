@@ -13,7 +13,7 @@ yarn install
 
 Create ios and android libraries
 ```shell
-yarn run upgrade
+yarn run eject
 ```
 
 Initialize pods

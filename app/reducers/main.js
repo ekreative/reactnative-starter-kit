@@ -3,12 +3,12 @@ import { CHANGE_STATE_PROP, DECREMENT, INCREMENT } from '../actions'
 import { list } from '../constants/index'
 
 const REDUCER = 'MAIN'
-const defaultState = {
+const initialState = {
   value: 0,
   list
 }
 
-export default (state = defaultState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT:
       return {
