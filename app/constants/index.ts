@@ -1,4 +1,5 @@
-export const SOME_NAME = 'SOME VALUE'
+export * from './colors';
+export const SOME_NAME = 'SOME VALUE';
 export const list = [
   { id: 1, value: 'Apple' },
   { id: 2, value: 'Apricot' },
@@ -7,4 +8,4 @@ export const list = [
   { id: 5, value: 'Apple' },
   { id: 6, value: 'Blackberry' },
   { id: 7, value: 'Apple' }
-]
+];

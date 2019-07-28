@@ -15,5 +15,5 @@ test:
   tags:
     - docker
   script:
-    - yarn run standard-test
+    - yarn run lint
     - yarn test

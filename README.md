@@ -13,35 +13,17 @@ yarn install
 
 Create ios and android libraries
 ```shell
-yarn run eject
+yarn run upgrade
 ```
 
-Initialize pods
-
-```shell
-cd ios
-pod init
-```
-
-Copy the text from Podfile.txt and paste it into the Podfile which is located in the ios folder.
-
-Now you can delete the Podfile.txt.
-
-Change the name on line 4 from "reactNativeStarterKit" to the name of your project.
-
+Go to ios folder and run
 ```shell
 pod install
 ```
 
-Thereafter in Xcode you should use only .xcworkspace
+In Xcode you should use only .xcworkspace
 
-You need to create and set up a firebase project in order to use crashlytics.
-
-To do this, go through all the steps described here https://rnfirebase.io/docs/v5.x.x/crashlytics/ios
-
-After that, uncomment the lines associated with the crashlytics in the file app/components/ErrorBoundary/ErrorBoundary.js
-
-index.js.dist in app/config is example of index.js where you can put some properties (i.e. server/api url).
+index.ts.dist in app/config is example of index.ts where you can put some properties (i.e. server/api url).
 
 ## For starting the project
 
@@ -55,27 +37,13 @@ ios
 yarn run ios
 ```
 
-For release building on Android use
-```shell
-yarn run build-release-android
-```
-
-For Clean Project in Android run
-
-```shell
-yarn run gradle-clean
-```
-
 ## Tests
 
-Standard is for code style testing
+Lint your code
 ```shell
-yarn run standard-test
+yarn run lint
 ```
 Jest is for unit testing
 ```shell
 yarn test
 ```
-## Style guide
-
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
