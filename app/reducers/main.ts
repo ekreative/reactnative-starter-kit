@@ -14,7 +14,6 @@ export interface ListElement {
 export interface State {
   value: number;
   list: ListElement[];
-  [key: string]: any;
 }
 
 const REDUCER: string = 'MAIN';
@@ -39,7 +38,7 @@ export default (state: State = initialState, action: ActionType) => {
       if (action.state) {
         const { prop, value } = action.state;
         return produce(state, newState => {
-          newState[prop] = value;
+          newState[prop as keyof State] = value;
         });
       }
       return state;

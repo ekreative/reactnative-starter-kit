@@ -8,7 +8,6 @@ export interface State {
   testObject: {};
   testArray: [];
   testStr: string;
-  [key: string]: any;
 }
 
 const initialState: State = {
@@ -23,7 +22,7 @@ export default function reducer(state = initialState, action: ActionType) {
       if (action.state) {
         const { prop, value } = action.state;
         return produce(state, newState => {
-          newState[prop] = value;
+          newState[prop as keyof State] = value;
         });
       }
       return state;
