@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ScreenA from './app/screens/ScreenA/ScreenA';
 import ScreenB from './app/screens/ScreenB/ScreenB';
-import ScreenС from './app/screens/ScreenC/ScreenC';
+import ScreenC from './app/screens/ScreenC/ScreenC';
 import ScreenWithHooks from './app/screens/ScreenWithHooks/ScreenWithHooks';
 import { store, persistor } from './app/config/store';
 // import AppNavigator from './app/config/routes';
@@ -23,7 +23,7 @@ const App = () => {
             <Stack.Navigator initialRouteName="ScreenA">
               <Stack.Screen name="ScreenA" component={ScreenA} />
               <Stack.Screen name="ScreenB" component={ScreenB} />
-              <Stack.Screen name="ScreenС" component={ScreenС} />
+              <Stack.Screen name="ScreenC" component={ScreenC} />
               <Stack.Screen
                 name="ScreenWithHooks"
                 component={ScreenWithHooks}
