@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-native';
 import { withNavigation } from '@react-navigation/compat';
 
-const MyBackButton = (props: any) => {
+const MyBackButton = (props: { navigation: any }) => {
   const { navigation } = props;
   return <Button title="MyBackButton" onPress={() => navigation.goBack()} />;
 };
