@@ -28,6 +28,8 @@ target 'reactNativeStarterKit' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
   target 'reactNativeStarterKitTests' do
     inherit! :search_paths
     # Pods for testing
