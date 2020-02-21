@@ -8,7 +8,7 @@ import { State } from '../../config/store';
 import { ListElement } from '../../reducers/main';
 
 const ScreenC: React.FC = () => {
-  const value = useSelector((state: State) => state.main.value);
+  const value = useSelector((state: { main: any }) => state.main.value);
 
   const list = useSelector((state: State) => getFiltering(state, 'Apple'));
 

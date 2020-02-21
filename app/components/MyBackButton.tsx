@@ -1,13 +1,11 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { Button } from 'react-native';
-import { withNavigation, NavigationInjectedProps } from 'react-navigation';
+import { withNavigation } from '@react-navigation/compat';
 
-class MyBackButton extends PureComponent<NavigationInjectedProps> {
-  render() {
-    const { navigation } = this.props;
-    return <Button title="MyBackButton" onPress={() => navigation.goBack()} />;
-  }
-}
+const MyBackButton = (props: { navigation: any }) => {
+  const { navigation } = props;
+  return <Button title="MyBackButton" onPress={() => navigation.goBack()} />;
+};
 
 // withNavigation returns a component that wraps MyBackButton and passes in the
 // navigation prop

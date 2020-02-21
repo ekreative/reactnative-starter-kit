@@ -1,10 +1,11 @@
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createCompatNavigatorFactory } from '@react-navigation/compat';
 import ScreenA from '../screens/ScreenA/ScreenA';
 import ScreenB from '../screens/ScreenB/ScreenB';
 import ScreenC from '../screens/ScreenC/ScreenC';
 import ScreenWithHooks from '../screens/ScreenWithHooks/ScreenWithHooks';
 
-const AppNavigator = createStackNavigator(
+export const AppNavigator = createCompatNavigatorFactory(createStackNavigator)(
   {
     ScreenA: {
       screen: ScreenA
@@ -23,5 +24,3 @@ const AppNavigator = createStackNavigator(
     initialRouteName: 'ScreenA'
   }
 );
-
-export default createAppContainer(AppNavigator);
